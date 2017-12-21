@@ -8,7 +8,7 @@ Simple Device C Compiler (SDCC) is now supporting STM8 processors. However, some
 
 SDCC has one peculiarity: It can only compile one source file, which makes it somewhat tricky to build projects with many files. However, it has a solution that all the accompanying files in a project can be compiled into one project specific library (with .lib extension), which is then linked against the main source file during final compilation. The provided Makefile automaticaly does this and flashes the code to the processor.
 
-The sample project I provide here blinks the LED on a STM8S103F3. The device programmer is the ST-LINK V2 with an included SWIM port.
+The sample project I provide here blinks the LED on a STM8S103F3P6, typically going by the trade name of "minimum  system development board". The device programmer is a cheap ST-LINK V2 with an included SWIM port.
 
 ## How to use:
 (In Linux)
