@@ -46,9 +46,9 @@ I have had a great boost by reading this source:
 https://www.cnx-software.com/2015/04/13/how-to-program-stm8s-1-board-in-linux/
 
 Note that some chips come with code protection fuse bits set. This prevents write attempts. It is a simple matter to change the bits and make the device writeable. See, for example:
-https://github.com/vdudouyt/stm8flash/issues/38
+https://github.com/vdudouyt/stm8flash/issues/38 and read the comment by @minobull on 23 Apr 2016:
 
-ANd the comment by @minobull on 23 Apr 2016:
-
+```bash
 echo "00 00 ff 00 ff 00 ff 00 ff 00 ff" | xxd -r -p > factory_defaults.bin
 stm8flash -c stlinkv2 -p stm8s103f3 -s opt -w factory_defaults.bin
+```
