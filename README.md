@@ -22,3 +22,15 @@ The sample project I provide here blinks the LED on a STM8S103F3. The device pro
 The last step will compile the libraries under 'libs', compile main.c, and finally flash the code on the processor.
 
 Once you set up your project correctly, all that you need to do is to execute **make flash** for a re-build any time you modify your source and want to flash the code on your processor. It is possible to remove the intermediate files by executing **make clean** or simply compile the project by executing **make**.
+
+**Modification of the Library file**
+The convention for inline assembly command inclusion ('asm') for the compilers officially supported for STM8 is different than SDCC. This fails the compilation. Although the library can be augmented by adding SDCC to all the include and source files, this is tedious and difficult to maintain. For most projects, the remedy is to trick the library to think that we are compiling for a supported compiler, and modify the 'asm' definitions relating to that compiler in the header files, to SDCC syntax.
+
+The file requiring modification is 'STM8S_StdPeriph_Lib/Libraries/STM8S_StdPeriph_Driver/inc/stm8s.h'. 
+Find all the lines that have an 'asm' command:
+
+#define halt()                {_asm("halt\n");}
+and modify them as:
+#define halt()                __asm__("halt\n");
+
+And that's it.
