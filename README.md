@@ -17,7 +17,7 @@ The sample project I provide here blinks the LED on a STM8S103F3P6, typically go
 - Modify the file 'STM8S_StdPeriph_Lib/Libraries/STM8S_StdPeriph_Driver/inc/stm8s.h' (explained below)
 - Edit the 'Makefile' provided to modify the library path.
 - Similarly edit the 'Makefile' in 'libs' directory.
-- Install 'stm8flash' https://github.com/vdudouyt/stm8flash/ It is a device progammer for the SWIM port of the ST-Link V2 programmer
+- Install ['stm8flash'](https://github.com/vdudouyt/stm8flash/) It is a device progammer for the SWIM port of the ST-Link V2 programmer
 - in the project folder type `make flash`
 The last step will compile the library file as `./libs/projectlib.lib`, compile main.c into `main.ihx`, and finally flash the code on the processor.
 
@@ -29,13 +29,13 @@ The convention for inline assembly command inclusion (`asm`) for the compilers o
 
 The file requiring modification is 'STM8S_StdPeriph_Lib/Libraries/STM8S_StdPeriph_Driver/inc/stm8s.h'. 
 Find all the lines that have an 'asm' command:
-```
+```c
 #define halt()                {_asm("halt\n");}
 ```
 
 and modify them as:
 
-```
+```c
 #define halt()                __asm__("halt\n");
 ```
 
