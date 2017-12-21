@@ -17,7 +17,7 @@ The sample project I provide here blinks the LED on a STM8S103F3. The device pro
 - Modify the file 'STM8S_StdPeriph_Lib/Libraries/STM8S_StdPeriph_Driver/inc/stm8s.h' (explained below)
 - Edit the 'Makefile' provided to modify the library path.
 - Similarly edit the 'Makefile' in 'libs' directory.
-- Install 'stm8flash' from github. It is a device progammer for the SWIM port of the ST-Link V2 programmer.
+- Install 'stm8flash' https://github.com/vdudouyt/stm8flash/ It is a device progammer for the SWIM port of the ST-Link V2 programmer
 - in the project folder type `make flash`
 The last step will compile the library file as `./libs/projectlib.lib`, compile main.c into `main.ihx`, and finally flash the code on the processor.
 
@@ -40,3 +40,10 @@ and modify them as:
 ```
 
 And that's it.
+
+I have had a great boost by reading this source:
+
+https://www.cnx-software.com/2015/04/13/how-to-program-stm8s-1-board-in-linux/
+
+Note that some chips come with code protection fuse bits set. This prevents write attempts. It is a simple matter to change the bits and make the device writeable. See, for example:
+https://github.com/vdudouyt/stm8flash/issues/38
