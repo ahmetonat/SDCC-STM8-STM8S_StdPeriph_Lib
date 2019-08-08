@@ -19,6 +19,7 @@ The sample project I provide here blinks the LED on a small STM8S103F3P6 board, 
 - Similarly edit the 'Makefile' in 'libs' directory.
 - Install ['stm8flash'](https://github.com/vdudouyt/stm8flash/) It is a device progammer for the SWIM port of the ST-Link V2 programmer
 - in the project folder type `make flash`
+
 The last step will compile the library file as `./libs/projectlib.lib`, compile main.c into `main.ihx`, and finally flash the code on the processor.
 
 Once you set up your project correctly, all that you need to do for a re-build any time you modify your source and want to flash the code on your processor is to execute `make flash`. It is possible to remove the intermediate files by executing `make clean` or simply compile the project by executing `make`.
